@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(require('./routes/user'));
+app.use(require('./routes/index.js'))
 
 mongoose.connect(
     process.env.MONGO_URL,

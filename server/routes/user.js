@@ -6,17 +6,19 @@ const {
     deleteUser,
     desactivateUser,
 } = require('../controllers/userController');
+const isAdmin = require('../middlewares/isAdmin');
+const verifyToken = require('../middlewares/verifyToken');
 
-const app = express.Router();
+const router = express.Router();
 
-app.get('/user', getUsers);
+router.get('/user', verifyToken, getUsers);
 
-app.post('/user', createUser);
+router.post('/user', [verifyToken, isAdmin], createUser);
 
-app.put('/user/:id', updateUser);
+router.put('/user/:id', [verifyToken, isAdmin], updateUser);
 
-app.delete('/user/:id', deleteUser);
+router.delete('/user/:id', [verifyToken, isAdmin], deleteUser);
 
-app.delete('/user/desactivate/:id', desactivateUser);
+router.delete('/user/desactivate/:id', verifyToken, desactivateUser);
 
-module.exports = app;
+module.exports = router;

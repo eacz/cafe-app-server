@@ -50,7 +50,7 @@ const getUsers = (req, res) => {
                 return res.status(400).json({ ok: false, err });
             }
 
-            User.count({ state: true }, (err, count) => {
+            User.countDocuments({ state: true }, (err, count) => {
                 if (err) {
                     return res.status(400).json({ ok: false, err });
                 }
