@@ -14,3 +14,7 @@ process.env.MONGO_URL = urlDB;
 
 process.env.TOKEN_EXP = 60 * 60 * 24 * 30;
 process.env.SECRET_KEY = process.env.SECRET_KEY_PROD || 'dev-secret-key';
+
+
+//google client id
+process.env.GOOGLE_CLIENT = process.env.GOOGLE_CLIENT || '775712411376-au7tn4vfoph1m4dobofekjacuucqjkac.apps.googleusercontent.com'
